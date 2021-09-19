@@ -12,6 +12,8 @@ Install the Pore-C_Hypergraphs code through one of the following methods.
 Both methods will create a directory named Pore-C_Hypergraphs which will contain all the necessary files for execution.
 - Download the toolbox as a .zip folder and extract the contents into your MATLAB directory of choice. 
 - Clone this Git repository into your MATLAB directory of choice using MATLAB's built-in [Source Control](https://www.mathworks.com/help/matlab/matlab_prog/retrieve-from-git-repository.html).
+- Expected install time of code: <10 minutes
+- Expected install time of MATLAB: ~30 minutes
 
 After the Pore-C_Hypergraphs directory (and its sub-directories) are added, 
 [data](https://drive.google.com/drive/folders/17r2QR_mSkZLPiuqQgrgq0Zzc5u9SE5Cz?usp=sharing) 
