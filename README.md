@@ -1,75 +1,41 @@
 # Deciphering Multi-way Interactions in the Human Genome
 
 # Overview
-The 4DNvestigator is a MATLAB toolbox that analyzes time-series genome-wide chromosome
-conformation capture (Hi-C) and gene expression (RNA-seq) data.
+All code to perform analysis in the manuscript, Deciphering Multi-way Interactions in the Human Genome, can be found here. The code is organized into separate folders which correspond to each figure in the main manuscript and supplemental materials.
 
-Paper: in preparation
+Availability: https://github.com/lindsly/Pore-C_Hypergraphs
 
-Availability: https://github.com/lindsly/4DNvestigator
-
-Data Availability: [4DNvestigator Data](https://drive.google.com/drive/folders/1xVjX7yqiOIPV_IfVKVDJJ79Ee0xMHGr8?usp=sharing)
+Data Availability: [PoreC Data](https://drive.google.com/drive/folders/1xVjX7yqiOIPV_IfVKVDJJ79Ee0xMHGr8?usp=sharing)
 
 # Installation
-Install the 4DNvestigator through one of the following methods. 
-Both methods will create a directory named 4DNvestigator which will contain all the necessary files for execution.
+Install the Pore-C_Hypergraphs code through one of the following methods. 
+Both methods will create a directory named Pore-C_Hypergraphs which will contain all the necessary files for execution.
 - Download the toolbox as a .zip folder and extract the contents into your MATLAB directory of choice. 
-- Clone this Git repository into your MATLAB directory of choice using MATLAB's built-in [Source Control](https://www.mathworks.com/help/matlab/matlab_prog/retrieve-from-git-repository.html)
+- Clone this Git repository into your MATLAB directory of choice using MATLAB's built-in [Source Control](https://www.mathworks.com/help/matlab/matlab_prog/retrieve-from-git-repository.html).
 
-After the 4DNvestigator directory (and its sub-directories) are added, all 
-[example data](https://drive.google.com/drive/folders/1xVjX7yqiOIPV_IfVKVDJJ79Ee0xMHGr8?usp=sharing) 
-must be downloaded to the folder "data\exampleData" in order to run all of the functions contained in the example script "ExampleScript.m"
+After the Pore-C_Hypergraphs directory (and its sub-directories) are added, 
+[data](https://drive.google.com/drive/folders/1xVjX7yqiOIPV_IfVKVDJJ79Ee0xMHGr8?usp=sharing) 
+must be downloaded to the folder that is responsible for creating each figure.
 
-# Hi-C and RNA-seq data types
-The 4DNvestigator accepts the following input file formats:
 
-|**Data Type**|**File Type**|**Program**|
-|----|----|----|
-|Hi-C|.hic|Juicer|
-|RNA-seq|.genes.results|RSEM|
+# Code Organization
+- Figure 2: Incidence matrix construction of a region in Chromosome 22 from fibroblasts. Contact frequency matrices were constructed by separating all multi-way contacts within this region of Chromosome 22 into their pairwise combinations. TADs are computed from the pairwise contacts. Multi-way contacts in this figure were determined in 100 kb resolution after noise reduction, originally derived from read-level multi-way contacts. (This code also applies to Supplemental Figure 1 for B lymphocytes).
+- Figure 3: Incidence  matrix  construction  of  Chromosome  22  in fibroblasts. Frequencies of Pore-C contacts in Chromosome 22 can be shown in a bar plot according to the order of contact. Incidence matrix  construction  of  the  inter-chromosomal multi-way  contacts  between  Chromosome  20  and  Chromosome  22 in 1 Mb resolution.  Within this figure, all data are from one fibroblast sequencing run and multi-way contacts were determined after noise reduction at 1 Mb or 100 kb resolution accordingly.
+- Figure 4: Incidence matrix construction of the top 10 most common multi-way contacts per chromosome. Matrices are constructed at 25 Mb resolution for both fibroblasts and B lymphocytes. Specifically, 5 intra-chromosomal and 5 inter-chromosomal multi-way contacts are identified for each chromosome with no repeated contacts. If 5 unique intra-chromosomal multi-way contacts are not possible in a chromosome, they are supplemented with additional inter-chromosomal contacts. Multi-way contacts were determined in 25 Mb resolution after noise reduction.
+- Figure 5: The most common 2-way, 3-way, 4-way, and 5-way inter-chromosome combinations for each chromosome are calculated for fibroblasts and B lymphocytes. Inter-chromosomal combinations are determined using 25 Mb resolution multi-way contacts after noise reduction and are normalized by chromosome length. Here we only consider unique chromosome instances (i.e. multiple loci in a single chromosome are ignored).
+- Figure 6: A 5 kb region before and after each locus in a Pore-C read is queried for chromatin accessibility and RNA Pol II binding (ATAC-seq and ChIP-seq, respectively). Multi-way contacts between accessible loci that have at least 1 instance of Pol II binding are indicative of potential transcription clusters. Gene expression and transcription factor binding sites are integrated to determine potential coexpression and coregulation within multi-way contacts with multiple genes. Transcription factor binding sites are queried +/- 5 kb from the gene’s transcription start site.
+- Figure 7: Examples of potential transcription clusters are determined for fibroblasts and B lymphocytes. Multi-way contacts used for fibroblasts include all experiments. Examples were selected from the set of multi-way contacts summarized derived in the code for Figure 6.
+- Figure S2: Calculates entropy of intra-chromosomal genomic hypergraph for fibroblast and B lymphocytes.
+- Figure S3: Calculates hypergraph distance between two genome-wide hypergraphs derived from fibroblast and B lymphocytes. The background distribution is formed by measuring the hypergraph distances between the hypergraph derived from fibroblast and random hypergraphs. Also calculates hypergraph distances between intra-chromosomal genomic hypergraphs between fibroblasts and B lymphocytes. 
 
-# Core Functions
-- 4DN Feature Analyzer: This measures the amount of change in both genome
-structure and function for specified genomic regions by mapping all time
-points to a consistent low dimensional embedding, and quantifying the variance
-of each loci within this space over time. Method specifics can be found in:
-["Genome Architecture Mediates Transcriptional Control of Human Myogenic Reprogramming"](https://www.cell.com/iscience/fulltext/S2589-0042(18)30114-7)
-- von Neuman Entropy: Measures the entropy ("uncertainty") of a
-multivariate system. Uncertainty is related to stemness. Here, we use this
-measure to determine stemness of Hi-C samples.
-- Larntz-Perlman: Method for testing the equality of correlation
-matrices. This is applied to Hi-C correlation matrices to determine the
-significance of matrix differences.
-- Network Analysis: Measures the overlapping degree and multiplex participation 
-coefficient to evaluate the heterogeneity of nodal degrees in dynamic biological networks.
-
-# Other Functions
-- Chromatin partitioning: Partitioning of the genome into two distinct
-groups based on either the Fiedler vector or principal component 1. This
-partitioning corresponds to euchromatin and heterochromatin, or A/B
-compartments.
-- Differential expression: Differential expression measures the
-significance of RNA-seq expression differences between samples.
-- A/B switching: This function determines which genomic regions change
-their chromatin structure from compartment "A" to compartment "B"
-
-# Examples
-- See "ExampleScript.m" to run each of the core functions of the 4DNvestigator 
-with default parameters using provided example data.
-- [GettingStarted_4DNvestigator](https://github.com/lindsly/4DNvestigator/blob/master/MATLAB_Documentation/GettingStarted_4DNvestigator.pdf)
-provides further details for each core function and their respective output.
-
-# Dependencies
-- The 4DNvestigator requires that [java](https://www.java.com/en/download/help/download_options.xml) and [python](https://www.python.org/downloads/) are installed to extract data from .hic files.
-  - We recommend that the ["requests"](https://realpython.com/python-requests/) library is installed for python, and that it is added to the MATLAB path with "setenv"
-- The 4DNvestigator uses [juicertools](https://github.com/aidenlab/juicer) to read data from .hic files
-- The 4DNvestigator requires the following MATLAB Toolboxes for proper functionality: [Statistics and Machine Learning](https://www.mathworks.com/products/statistics.html), [Computer Vision](https://www.mathworks.com/products/computer-vision.html), [Bioinformatics](https://www.mathworks.com/products/bioinfo.html), and [Image Processing](https://www.mathworks.com/products/image.html)
+<!--# Dependencies
+- The 4DNvestigator requires the following MATLAB Toolboxes for proper functionality: [Statistics and Machine Learning](https://www.mathworks.com/products/statistics.html), [Computer Vision](https://www.mathworks.com/products/computer-vision.html), [Bioinformatics](https://www.mathworks.com/products/bioinfo.html), and [Image Processing](https://www.mathworks.com/products/image.html)-->
 
 # System Requirements
-We recommend the following system properties for all 4DNvestigator functionalities to run properly:
+We recommend the following system properties for all code to run properly:
 - Windows 10
-- At least 12 Gb RAM 
-  - This is highly dependent on the size of the data being analyzed (data used in "ExampleScript.m" peaks at 9.5 Gb RAM usage) 
+- At least 16 Gb RAM 
+  - This is highly dependent on the size of the data being analyzed
 - A current version of MATLAB (2019 or later)
 
-*4DNvestigator was written and tested on a Windows 10 machine with an Intel Core i7-8700 CPU and 32 Gb RAM using MATLAB R2019b.*
+*This code was written and tested on a Windows 10 machine with an Intel Core i7-8700 CPU and 32 Gb RAM using MATLAB R2019b.*
