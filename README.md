@@ -5,7 +5,7 @@ All code to perform analysis in the manuscript, Deciphering Multi-way Interactio
 
 Availability: https://github.com/lindsly/Pore-C_Hypergraphs
 
-Data Availability: [PoreC Data](https://github.com/lindsly/Pore-C_Hypergraphs)
+Data Availability: [PoreC Data](https://drive.google.com/drive/folders/17r2QR_mSkZLPiuqQgrgq0Zzc5u9SE5Cz?usp=sharing)
 
 # Installation
 Install the Pore-C_Hypergraphs code through one of the following methods. 
@@ -14,7 +14,7 @@ Both methods will create a directory named Pore-C_Hypergraphs which will contain
 - Clone this Git repository into your MATLAB directory of choice using MATLAB's built-in [Source Control](https://www.mathworks.com/help/matlab/matlab_prog/retrieve-from-git-repository.html).
 
 After the Pore-C_Hypergraphs directory (and its sub-directories) are added, 
-[data](https://github.com/lindsly/Pore-C_Hypergraphs) 
+[data](https://drive.google.com/drive/folders/17r2QR_mSkZLPiuqQgrgq0Zzc5u9SE5Cz?usp=sharing) 
 must be downloaded to the folder that is responsible for creating each figure.
 
 
