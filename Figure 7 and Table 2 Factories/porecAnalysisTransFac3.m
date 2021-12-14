@@ -94,7 +94,7 @@ parfor i = 1:length(edgeGenes)
     geneIdx = ismember(totalGenes, genes);
     geneExpress{i} = geneTPM(geneIdx);
     
-    if length(genes)>=2
+    if size(genes, 1)>=2
         geneTFIdx = ismember(totalGenesTF, genes);
         tfBind = table2array(Btable(geneTFIdx, :))>=3;
         tfIdx = sum(tfBind, 1)>=length(genes);
