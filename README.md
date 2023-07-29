@@ -5,7 +5,7 @@ All code to perform analysis in the manuscript, Deciphering Multi-way Interactio
 
 Availability: https://github.com/lindsly/Pore-C_Hypergraphs
 
-Data Availability: [PoreC Data](https://drive.google.com/drive/folders/17r2QR_mSkZLPiuqQgrgq0Zzc5u9SE5Cz?usp=sharing)
+Data Availability: Contact lindsly@umich.edu
 
 # Installation
 Install the Pore-C_Hypergraphs code through one of the following methods. 
@@ -16,9 +16,7 @@ Both methods will create a directory named Pore-C_Hypergraphs which will contain
 - Expected install time of MATLAB: ~30 minutes
 
 After the Pore-C_Hypergraphs directory (and its sub-directories) are added, 
-[data](https://drive.google.com/drive/folders/17r2QR_mSkZLPiuqQgrgq0Zzc5u9SE5Cz?usp=sharing) 
-must be downloaded to the folder that is responsible for creating each figure.
-
+data must be downloaded to the folder that is responsible for creating each figure.
 
 # Code Organization
 - Figure 2: Incidence matrix construction of a region in Chromosome 22 from fibroblasts. Contact frequency matrices were constructed by separating all multi-way contacts within this region of Chromosome 22 into their pairwise combinations. TADs are computed from the pairwise contacts. Multi-way contacts in this figure were determined in 100 kb resolution after noise reduction, originally derived from read-level multi-way contacts. (This code also applies to Supplemental Figure 1 for B lymphocytes). Expected run time: < 10 minutes.
